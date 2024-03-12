@@ -38,16 +38,15 @@
             @if(conteo == "01:00"){
                 @if(golbarca > hijo){
                     <p>Ganador barcelona</p>
-                }@if(hijo == golbarca){
-                    <p>empate</p>
                 }
-                @else{
-                    <p>Ganador Madrid</p> 
+                @if(hijo > golbarca){
+                    <p>Ganador Madrid</p>
                 }
             }
-          
-            
-       
+            @if(hijo == golbarca){
+                <p>empate</p>
+            }
+                      
         </div>
     </div>
 </div>
@@ -73,7 +72,7 @@
                     }
                 </div>
                 <div class="btn_gol" >
-                    <button (click)="goles1()" >Marcar Gol</button>
+                    <button  (click)="goles1()" >Marcar Gol</button>
         
                     @if(golbarca > hijo ){
                         <p> vamos ganando </p>
@@ -88,7 +87,7 @@
 
 <div class="btn_play" >
 
-    <button (click)="contar()" >Comienza Partido</button>
+    <button [disabled]="disable" (click)="contar()" >Comienza Partido</button>
 </div>
 
 

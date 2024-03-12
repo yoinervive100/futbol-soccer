@@ -18,8 +18,9 @@ export class AppComponent {
 
     if (this.valor!) {
       this.golbarca++; 
-     
-    }else{
+  
+    }
+    else{
       this.golbarca = 0;
     }
   }
@@ -27,7 +28,6 @@ export class AppComponent {
   recibehijo(){
     if (this.valor!) {
       this.hijo++; 
-     
     }else{
       this.hijo = 0;
     }
@@ -37,18 +37,21 @@ export class AppComponent {
   contador = interval(1000)
   valor:any;
   conteo:any = "0"
-   disible = false;
+  disable = false;
 
   contar(){    
-    this.disible = true;
+   this.disable = true
+    this.golbarca = 0
+    this.hijo = 0
      this.valor = this.contador.subscribe((d)=>{
       this.conteo = d;
       if (this.conteo == "60" ) {
         this.valor.unsubscribe()
         this.conteo = "01:00"
+        this.disable = false
       }
-      if (this.conteo == "55") {
-        this.title = 'El Partido Finalizara 5 Segundo ';
+      if (this.conteo >= "55") {
+        this.title = 'El Partido Finalizara 5 Segundo';   
         
       }
     })
