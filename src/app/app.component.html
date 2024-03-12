@@ -1,0 +1,98 @@
+
+<h1>Partifo De futbol</h1>
+
+<div class="bg_fondo" >
+    <div class="bg_conte">
+        <div class="bg_logo" >
+            <picture class="imagages_logo" >
+                <img src="assets\images\real-fc.svg" alt="">
+            </picture>
+            <picture class="imagages_logo" >
+                <img src="assets\images\fc-barcelona.svg" alt="">
+            </picture>
+        </div>
+        
+              
+        <div class="marcador_goles" >
+            <div class="marcador_fin" >
+                <p> {{hijo}} </p>
+            </div>
+            <div class="marcador_fin" >
+                 <p> {{golbarca}} </p>
+            </div>
+        </div>
+        <div class="time_soccer" >
+                <div class="time_conte" >
+                    <div class="time_title" >
+                        <button>TIME</button>
+                    </div>
+                <div class="time_tiempo" >
+                    <p> {{conteo}} </p>
+                </div>
+                </div>
+        </div>
+        <div class="resultado_total" >
+            @if(conteo >= 55 ){
+                <p> {{title}} </p>     
+            }
+            @if(conteo == "01:00"){
+                @if(golbarca > hijo){
+                    <p>Ganador barcelona</p>
+                }@if(hijo == golbarca){
+                    <p>empate</p>
+                }
+                @else{
+                    <p>Ganador Madrid</p> 
+                }
+            }
+          
+            
+       
+        </div>
+    </div>
+</div>
+
+<div class="marca_gol" >
+    <div class="marca_goles" >
+        <div class="marca_goleadores" >
+            <picture  class="bg_logotipo" >    
+                <img src="assets\images\real-fc.svg" alt="">
+            </picture>
+            <picture class="bg_logotipo" >    
+                <img src="assets\images\fc-barcelona.svg" alt="">
+            </picture>
+        </div>
+            <div class="btn_marcar">
+
+                <div class="btn_gol" >
+                    <app-hijo  [Recibirpadre]="golbarca"  (Mensajehijo)="recibehijo()"/>
+                    @if(hijo > golbarca ){
+                        <p> vamos ganando </p>
+                    }@if(golbarca > hijo){
+                        <p>van perdiendo</p>
+                    }
+                </div>
+                <div class="btn_gol" >
+                    <button (click)="goles1()" >Marcar Gol</button>
+        
+                    @if(golbarca > hijo ){
+                        <p> vamos ganando </p>
+                    }@if(hijo > golbarca){
+                        <p> van perdiendo </p>
+                    }
+                    
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="btn_play" >
+
+    <button (click)="contar()" >Comienza Partido</button>
+</div>
+
+
+
+
+
+<router-outlet />

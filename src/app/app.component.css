@@ -1,0 +1,83 @@
+.bg_fondo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg_conte{
+    background-color: blue;
+    width: 320px;
+    padding: 20px 20px;
+}
+.bg_logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+
+}
+
+.imagages_logo img {
+    height: 70px;
+}
+.marcador_goles{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+.marcador_fin{
+    color: white;
+    font-size: 25px;
+}
+.time_soccer{
+    display: flex;
+    justify-content: center;
+}
+.time_conte{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.time_title button{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 3px 24px;
+}
+.time_tiempo{
+    color: white;
+    font-size: 25px;
+}
+.marca_goleadores img {
+    height: 40px;
+}
+.marca_gol  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+.bg_logotipo{
+    padding: 0 90px;
+}
+.btn_marcar{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.btn_marcar button{
+    cursor: pointer;
+}
+.btn_play{
+    display: flex;
+    justify-content: center;
+}
+.btn_play button {
+    cursor: pointer;
+}
+.resultado_total{
+    text-align: center;
+    color: white;
+}
