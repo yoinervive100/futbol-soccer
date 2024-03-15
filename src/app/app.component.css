@@ -1,3 +1,4 @@
+
 .bg_fondo{
     display: flex;
     justify-content: center;
@@ -6,8 +7,9 @@
 
 .bg_conte{
     background-color: blue;
-    width: 320px;
+    width: 720px;
     padding: 20px 20px;
+    border-radius: 4px;
 }
 .bg_logo{
     display: flex;
@@ -55,7 +57,7 @@
 }
 .marca_gol  {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 60px 0;
 }
@@ -69,15 +71,27 @@
 }
 .btn_marcar button{
     cursor: pointer;
+    border: none;
+    background-color: cornflowerblue;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 2px;
 }
-.btn_play{
+
+.btn_expan{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .btn_play button {
     cursor: pointer;
+    border: none;
+    background-color: cornflowerblue;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 2px;
 }
 .resultado_total{
     text-align: center;
     color: white;
 }
+

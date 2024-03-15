@@ -1,6 +1,4 @@
-
-<h1>Partifo De futbol</h1>
-
+  
 <div class="bg_fondo" >
     <div class="bg_conte">
         <div class="bg_logo" >
@@ -27,27 +25,43 @@
                         <button>TIME</button>
                     </div>
                 <div class="time_tiempo" >
-                    <p> {{conteo}} </p>
+                        @if(conteo > 0){
+                            <p> {{conteo}} </p>
+                        }@if( minutes > 0){
+                            <p> {{guardar}} </p>
+                        }
+                          
+                        
+                    
                 </div>
                 </div>
         </div>
         <div class="resultado_total" >
             @if(conteo >= 55 ){
-                <p> {{title}} </p>     
+                <p> {{title}} </p>  
             }
             @if(conteo == "01:00"){
+                <p>00:00</p>
                 @if(golbarca > hijo){
                     <p>Ganador barcelona</p>
-                }@if(hijo == golbarca){
-                    <p>empate</p>
                 }
-                @else{
-                    <p>Ganador Madrid</p> 
+                @if(hijo > golbarca){
+                    <p>Ganador Madrid</p>
                 }
             }
-          
+            @if(time <= 0){
+                @if(golbarca > hijo){
+                    <p>Ganador barcelona</p>
+                }
+                @if(hijo > golbarca){
+                    <p>Ganador Madrid</p>
+                }
+            }
+            @if(hijo == golbarca){
+                <p>empate</p>
+            }
+                
             
-       
         </div>
     </div>
 </div>
@@ -66,29 +80,39 @@
 
                 <div class="btn_gol" >
                     <app-hijo  [Recibirpadre]="golbarca"  (Mensajehijo)="recibehijo()"/>
-                    @if(hijo > golbarca ){
-                        <p> vamos ganando </p>
-                    }@if(golbarca > hijo){
-                        <p>van perdiendo</p>
-                    }
+                    <div>
+                        @if(hijo > golbarca ){
+                            <p> vamos ganando </p>
+                        }@if(golbarca > hijo){
+                            <p>van perdiendo</p>
+                        }
+                    </div>
                 </div>
                 <div class="btn_gol" >
                     <button (click)="goles1()" >Marcar Gol</button>
-        
-                    @if(golbarca > hijo ){
-                        <p> vamos ganando </p>
-                    }@if(hijo > golbarca){
-                        <p> van perdiendo </p>
-                    }
-                    
+                    <div>    
+                        @if(golbarca > hijo ){
+                            <p> vamos ganando </p>
+                        }@if(hijo > golbarca){
+                            <p> van perdiendo </p>
+                        }
+                    </div>
                 </div>
             </div>
     </div>
 </div>
 
 <div class="btn_play" >
+    <div class="btn_expan" >
+        <div>
+            <button [disabled]="disible"  (click)="contar()" >Comienza Partido</button>
+        </div>
+        <div>
+            <button [disabled]="apagar"  (click)="funciom()" >personalizar tiempo</button>
+        </div>
+    </div>
 
-    <button (click)="contar()" >Comienza Partido</button>
+
 </div>
 
 

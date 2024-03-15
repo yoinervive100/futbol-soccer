@@ -1,3 +1,8 @@
 button{
     cursor: pointer;
+    border: none;
+    background-color: cornflowerblue;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 2px;
 }
