@@ -21,11 +21,14 @@ export class AppComponent implements OnInit {
   segundo:any;
   guardar:any;
   apagar:any;
-  goles1(){
+  ganador:any;
 
-    if (this.valor! || this.guardar ) {
+  goles1(){
+    if (this.valor! || this.guardar ){
       this.golbarca++; 
-     
+      let audio = new Audio();
+      audio.src = '../assets/audio/sonido-gool.mp3';
+      audio.play();
     }
     else{
       this.golbarca = 0;
@@ -35,7 +38,9 @@ export class AppComponent implements OnInit {
   recibehijo(){
     if (this.valor! || this.guardar ) {
       this.hijo++; 
-     
+      let audio = new Audio();
+      audio.src = '../assets/audio/sonido-gool.mp3';
+      audio.play();
     }
     else{
       this.hijo = 0;
@@ -49,16 +54,21 @@ export class AppComponent implements OnInit {
   disible:any;
   minuto:any;
   contar(){  
+
+    let audio = new Audio();
+    audio.src = '../assets/audio/sonido-silbato.mp3';
+    audio.play();
     this.disible = true;
     this.apagar = true
     this.golbarca = 0
     this.hijo = 0
+    this.ganador = '';
      this.valor = this.contador.subscribe((d)=>{
       this.conteo = d;
-      if (this.conteo == "60" ) {
+      if (this.conteo == "60" ){
         this.valor.unsubscribe()
+        this.resultado()
         this.conteo = "0"
-        this.conteo = "01:00"
         this.disible = false
         this.apagar = false
       }
@@ -68,17 +78,31 @@ export class AppComponent implements OnInit {
     })
   }
 
+   resultado(){
+    if (this.golbarca > this.hijo) {
+      this.ganador = 'Ganador Barcelona'
+    }if(this.hijo > this.golbarca){
+    this.ganador = 'Ganador Real Madrid';
+    }
+    }
 
     funciom(){
-    this.golbarca = 0
-    this.hijo = 0
-    this.apagar = true
-    this.minutes = prompt('ingrese el tiempo ');
-    this.time =  this.minutes *60 
-    this.ngOnInit();
-  }
+      let audio = new Audio();
+      audio.src = '../assets/audio/sonido-silbato.mp3';
+      audio.play();
+      this.golbarca = 0
+      this.hijo = 0
+      this.apagar = true
+      this.minutes = prompt('ingrese el tiempo ');
+      this.time =  this.minutes *60 
+      this.ngOnInit();
+}
+      
+
+  
   funcionar(){    
-    if (this.minutes > 0) {
+    if (this.minutes > 0) { 
+      this.ganador = '';
       this.disible = true
       this.minuteis = Math.floor(this.time/60);
       this.segundo = this.time % 60
@@ -86,12 +110,14 @@ export class AppComponent implements OnInit {
       this.guardar = `${this.minuteis}:${this.segundo}`
     if (this.time <= 0){
        this.time = 0;
-       this.guardar = '00:00';
+       this.guardar = '';
        this.disible = false
        this.apagar = false
+       this.resultado()
     }
     if (this.conteo > 0) {
         this.disible = true
+        this.ganador = '';
     } 
     }
       
@@ -108,9 +134,7 @@ ngOnInit(): void {
             },1000)
            }
       }
-        
-         montar()
-
+       montar()
     }
 
 }
