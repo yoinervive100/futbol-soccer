@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     if (this.valor! || this.guardar ){
       this.golbarca++; 
       let audio = new Audio();
-      audio.src = '../assets/audio/sonido-gool.mp3';
+      audio.src = '../assets/audio/sonido-cortado.mp3';
       audio.play();
     }
     else{
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     if (this.valor! || this.guardar ) {
       this.hijo++; 
       let audio = new Audio();
-      audio.src = '../assets/audio/sonido-gool.mp3';
+      audio.src = '../assets/audio/sonido-cortado.mp3';
       audio.play();
     }
     else{
