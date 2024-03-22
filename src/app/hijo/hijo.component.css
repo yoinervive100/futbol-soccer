@@ -1,3 +1,6 @@
+*{
+    background: none;
+}
 button{
     cursor: pointer;
     border: none;

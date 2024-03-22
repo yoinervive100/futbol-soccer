@@ -3,4 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif; 
+    background-image: url('../src/assets/images/fondo-champions.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
 }

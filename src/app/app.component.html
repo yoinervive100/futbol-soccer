@@ -63,7 +63,7 @@
 
                 <div class="btn_gol" >
                     <app-hijo   [Recibirpadre]="golbarca"  (Mensajehijo)="recibehijo()"/>
-                    <div>
+                    <div class="equipo_ganador" >
                         @if(hijo > golbarca ){
                             <p> vamos ganando </p>
                         }@if(golbarca > hijo){
@@ -73,7 +73,7 @@
                 </div>
                 <div class="btn_gol" >
                     <button (click)="goles1()" >Marcar Gol</button>
-                    <div>    
+                    <div class="equipo_ganador" >    
                         @if(golbarca > hijo ){
                             <p> vamos ganando </p>
                         }@if(hijo > golbarca){
